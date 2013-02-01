@@ -1,4 +1,12 @@
 /*
+ 
+ This is the original servo library modified to use the 14 mS refresh used in hobby-grade
+ radio controlled electronic speed controllers (ESC). 
+ 
+ Nothing else has been modified.
+
+ ------- 
+
   Servo.h - Interrupt driven Servo library for Arduino using 16 bit timers- Version 2
   Copyright (c) 2009 Michael Margolis.  All right reserved.
 
@@ -89,7 +97,9 @@ typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t ;
 #define MIN_PULSE_WIDTH       544     // the shortest pulse sent to a servo  
 #define MAX_PULSE_WIDTH      2400     // the longest pulse sent to a servo 
 #define DEFAULT_PULSE_WIDTH  1500     // default pulse width when servo is attached
-#define REFRESH_INTERVAL    20000     // minumim time to refresh servos in microseconds 
+
+// This is the value changed from 20 mS -> 14 mS. 
+#define REFRESH_INTERVAL    14000     // minumim time to refresh servos in microseconds 
 
 #define SERVOS_PER_TIMER       12     // the maximum number of servos controlled by one timer 
 #define MAX_SERVOS   (_Nbr_16timers  * SERVOS_PER_TIMER)
